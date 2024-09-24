@@ -1,23 +1,24 @@
 <?php
+
 /**
- * FILE TITLE GOES HERE
+ * Create User view
  *
- * DESCRIPTION OF THE PURPOSE AND USE OF THE CODE
- * MAY BE MORE THAN ONE LINE LONG
- * KEEP LINE LENGTH TO NO MORE THAN 96 CHARACTERS
+ * Displays a Registration Form for new users
+ * 
+ * 
  *
- * Filename:        index.view.php
- * Location:        ${FILE_LOCATION}
- * Project:         XXX-PHP-MVC-Jokes
- * Date Created:    DD/MM/YYYY
+ * Filename:        create.view.php
+ * Location:        App/View/users
+ * Project:         LAS-PHP-MVC-Jokes
+ * Date Created:    23/09/2024
  *
- * Author:          YOUR NAME <STUDENT_ID@tafe.wa.edu.au>
+ * Author:          YOUR NAME <20114831@tafe.wa.edu.au>
  *
  */
 
-$pageTitle = "Add | Users | XXX-MVC-Jokes";
+$pageTitle = "Add | Users | LAS-MVC-Jokes";
 
-loadPartial("header", ["pageTitle"=>$pageTitle]);
+loadPartial("header", ["pageTitle" => $pageTitle]);
 loadPartial('navigation');
 
 ?>
@@ -33,9 +34,9 @@ loadPartial('navigation');
 
         <section>
 
-        <?= loadPartial('errors', [
-            'errors' => $errors ?? []
-        ]) ?>
+            <?= loadPartial('errors', [
+                'errors' => $errors ?? []
+            ]) ?>
 
             <form method="POST" action="/users">
 
@@ -46,49 +47,67 @@ loadPartial('navigation');
                 <section class="mb-4">
                     <label for="GivenName" class="mt-4 pb-1">Given Name:</label>
                     <input type="text" id="GivenName"
-                           name="given_name" placeholder="Given Name"
-                           class="w-full px-4 py-2 border border-b-zinc-300 rounded focus:outline-none"
-                           value="<?= $user['given_name'] ?? '' ?>"/>
+                        name="given_name" placeholder="Given Name"
+                        class="w-full px-4 py-2 border border-b-zinc-300 rounded focus:outline-none"
+                        value="<?= $user['given_name'] ?? '' ?>" required />
                 </section>
 
                 <section class="mb-4">
                     <label for="FamilyName" class="mt-4 pb-1">Family Name:</label>
                     <input type="text" id="FamilyName"
-                           name="family_name" placeholder="Family Name"
-                           class="w-full px-4 py-2 border border-b-zinc-300 rounded focus:outline-none"
-                           value="<?= $user['family_name'] ?? '' ?>"/>
+                        name="family_name" placeholder="Family Name"
+                        class="w-full px-4 py-2 border border-b-zinc-300 rounded focus:outline-none"
+                        value="<?= $user['family_name'] ?? '' ?>" />
+                </section>
+
+                <section class="mb-4">
+                    <label for="NickName" class="mt-4 pb-1">Nickname:</label>
+                    <input type="text" id="NickName"
+                        name="nickname" placeholder="Nickname"
+                        class="w-full px-4 py-2 border border-b-zinc-300 rounded focus:outline-none"
+                        value="<?= $user['nickname'] ?? '' ?>" required />
                 </section>
 
                 <section class="mb-4">
                     <label for="Email" class="mt-4 pb-1">Email:</label>
                     <input type="email" id="Email"
-                           name="email" placeholder="Email Address"
-                           class="w-full px-4 py-2 border border-b-zinc-300 rounded focus:outline-none"
-                           value="<?= $user['email'] ?? '' ?>"/>
+                        name="email" placeholder="Email Address"
+                        class="w-full px-4 py-2 border border-b-zinc-300 rounded focus:outline-none"
+                        value="<?= $user['email'] ?? '' ?>" />
                 </section>
 
                 <section class="mb-4">
                     <label for="Password" class="mt-4 pb-1">Password:</label>
                     <input type="password" id="Password"
-                           name="user_password" placeholder="Password"
-                           class="w-full px-4 py-2 border border-b-zinc-300 rounded focus:outline-none"/>
+                        name="user_password" placeholder="Password"
+                        class="w-full px-4 py-2 border border-b-zinc-300 rounded focus:outline-none" />
                 </section>
 
                 <section class="mb-4">
                     <label for="PasswordConfirmation" class="mt-4 pb-1">Confirm password:</label>
                     <input type="password" id="PasswordConfirmation"
-                           name="password_confirmation" placeholder="Confirm Password"
-                           class="w-full px-4 py-2 border border-b-zinc-300 rounded focus:outline-none"/>
+                        name="password_confirmation" placeholder="Confirm Password"
+                        class="w-full px-4 py-2 border border-b-zinc-300 rounded focus:outline-none" />
                 </section>
 
+                <section class="mb-4">
+                    <label for="UserID" class="mt-4 pb-1">User ID:</label>
+                    <input type="number" id="UserID"
+                        name="user_id" placeholder="User ID"
+                        class="w-full px-4 py-2 border border-b-zinc-300 rounded focus:outline-none"
+                        value="10" required />
+
+                </section>
+
+
                 <button type="submit"
-                        class="w-full bg-green-500 hover:bg-green-600 text-white px-4 py-2 my-3
+                    class="w-full bg-green-500 hover:bg-green-600 text-white px-4 py-2 my-3
                                rounded focus:outline-none">
                     Save
                 </button>
 
                 <a href="/users"
-                   class="block text-center w-full bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded
+                    class="block text-center w-full bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded
                       focus:outline-none">
                     Cancel
                 </a>
@@ -103,4 +122,3 @@ loadPartial('navigation');
 
 <?php
 loadPartial("footer");
-

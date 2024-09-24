@@ -4,10 +4,10 @@
  *
  * Filename:        UserController.php
  * Location:        /App/Controllers
- * Project:         XXX-mvc-jokes
+ * Project:         LAS-PHP-mvc-jokes
  * Date Created:    6/09/2024
  *
- * Author:          YOUR NAME <STUDENT_ID@tafe.wa.edu.au>
+ * Author:          YOUR NAME <20114831@tafe.wa.edu.au>
  *
  */
 
@@ -54,6 +54,20 @@ class UserController
             'users' => $users
         ]);
     }
+
+
+
+    /**
+     * 
+     * Show Dashboard after Logging in 
+     */
+
+     public function dashboard()
+     {
+        loadView('/home');
+
+
+     }
 
     // TODO: Create the show method
 

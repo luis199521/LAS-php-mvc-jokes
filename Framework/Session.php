@@ -1,17 +1,17 @@
 <?php
 /**
- * FILE TITLE GOES HERE
+ * Session
  *
  * DESCRIPTION OF THE PURPOSE AND USE OF THE CODE
  * MAY BE MORE THAN ONE LINE LONG
  * KEEP LINE LENGTH TO NO MORE THAN 96 CHARACTERS
  *
  * Filename:        Session.php
- * Location:
+ * Location:        Framework/Session
  * Project:         XXX-PHP-MVC-Jokes
- * Date Created:    DD/MM/YYYY
+ * Date Created:    23/09/2024
  *
- * Author:          YOUR NAME <STUDENT_ID@tafe.wa.edu.au>
+ * Author:         Luis Alvarez  <20114831@tafe.wa.edu.au>
  *
  */
 

@@ -4,11 +4,11 @@
  *
  * Filename:        routes.php
  * Location:        /
- * Project:         XXX-mvc-jokes
+ * Project:         LAS-mvc-jokes
  * Date Created:    06/09/2024
  *
- * Author:          YOUR NAME <STUDENT_ID@tafe.wa.edu.au>
- * Author:          Student Name <student_id@tafe.wa.edu.au>
+ * Author:          Luis Alvarez  <20114831@tafe.wa.edu.au>
+ * Author:          Luis Alvarez  <20114831@tafe.wa.edu.au>
  */
 
 /* ----------------------------------------------------------------------------
@@ -30,11 +30,15 @@ $router->get('/', 'StaticPageController@index');
 /* ----------------------------------------------------------------------------
  * Users Endpoints
  */
+        //    $uri,     $controller,                   $middleware
 $router->get('/users', 'UserController@index');
 $router->get('/users/create', 'UserController@create', ['auth']);
 $router->get('/users/edit/{id}', 'UserController@edit', ['auth']);
 $router->get('/users/search', 'UserController@search');
 $router->get('/users/{id}', 'UserController@show');
+
+$router->get('/dashboard', 'UserController@dashboard', ['auth']);
+
 
 $router->post('/users', 'UserController@store', ['auth']);
 $router->put('/users/{id}', 'UserController@update', ['auth']);

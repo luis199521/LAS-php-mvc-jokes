@@ -9,14 +9,14 @@
 -- --------------------------------------------------------------------------------------------
 -- Make the DB active for commands
 -- --------------------------------------------------------------------------------------------
-USE xxx_php_mvc_jokes;
+USE LAS_php_mvc_jokes;
 
 
 -- --------------------------------------------------------------------------------------------
 -- Drop Categories Table and Recreate
 -- --------------------------------------------------------------------------------------------
-DROP TABLE IF EXISTS `xxx_php_mvc_jokes`.`categories`;
-CREATE TABLE `xxx_php_mvc_jokes`.`categories`
+DROP TABLE IF EXISTS `LAS_php_mvc_jokes`.`categories`;
+CREATE TABLE `LAS_php_mvc_jokes`.`categories`
 (
     `id`         BIGINT UNSIGNED AUTO_INCREMENT,
     `name`       VARCHAR(64) NOT NULL DEFAULT 'Unknown',
@@ -35,8 +35,8 @@ CREATE TABLE `xxx_php_mvc_jokes`.`categories`
 -- --------------------------------------------------------------------------------------------
 -- Drop Jokes Table and Recreate
 -- --------------------------------------------------------------------------------------------
-DROP TABLE IF EXISTS `xxx_php_mvc_jokes`.`jokes`;
-CREATE TABLE `xxx_php_mvc_jokes`.`jokes`
+DROP TABLE IF EXISTS `LAS_php_mvc_jokes`.`jokes`;
+CREATE TABLE `LAS_php_mvc_jokes`.`jokes`
 (
     `id`          BIGINT UNSIGNED AUTO_INCREMENT,
     `joke`        TEXT         NOT NULL,
@@ -58,8 +58,8 @@ CREATE TABLE `xxx_php_mvc_jokes`.`jokes`
 -- --------------------------------------------------------------------------------------------
 -- Drop Users Table and Recreate
 -- --------------------------------------------------------------------------------------------
-DROP TABLE IF EXISTS `xxx_php_mvc_jokes`.`users`;
-CREATE TABLE `xxx_php_mvc_jokes`.`users`
+DROP TABLE IF EXISTS `LAS_php_mvc_jokes`.`users`;
+CREATE TABLE `LAS_php_mvc_jokes`.`users`
 (
     `id`            BIGINT UNSIGNED AUTO_INCREMENT,
     `nickname`      VARCHAR(64)  NOT NULL,
@@ -86,11 +86,11 @@ CREATE TABLE `xxx_php_mvc_jokes`.`users`
 -- Default password used below is: Password123
 -- Create your own hashed passwords by visiting http://xxx-mvc-jokes.text/auth/password
 -- --------------------------------------------------------------------------------------------
-INSERT INTO `xxx_php_mvc_jokes`.`users` (`id`, `nickname`, `given_name`, `email`, `user_password`, `created_at`)
+INSERT INTO `LAS_php_mvc_jokes`.`users` (`id`, `nickname`, `given_name`, `email`, `user_password`, `created_at`)
 VALUES (1, 'X', 'Unknown', 'no-reply@example.com', '1234567890', '1970-01-01 00:00:01');
 
 
-INSERT INTO `xxx_php_mvc_jokes`.`users` (`id`, `nickname`, `given_name`, `email`, `user_password`, `created_at`)
+INSERT INTO `LAS_php_mvc_jokes`.`users` (`id`, `nickname`, `given_name`, `email`, `user_password`, `created_at`)
 VALUES (10,'Guvner', 'Administrator', 'admin@example.com',
         '$2y$12$EZymemwtvalA/Nz8H6inPeGzy945cJzxPBGZ2vCFgxUb3ushBZZ5C',
         '2024-01-01 00:01:02');

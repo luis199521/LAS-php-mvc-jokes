@@ -7,10 +7,10 @@
  *
  * Filename:        UserAuthController.php
  * Location:        App/Controllers
- * Project:         XXX-PHP-MVC-Jokes
- * Date Created:    DD/MM/YYYY
+ * Project:         LAS-PHP-MVC-Jokes
+ * Date Created:    23/09/2024
  *
- * Author:          YOUR NAME <STUDENT_ID@tafe.wa.edu.au>
+ * Author:         Luis Alvarez  <20114831@tafe.wa.edu.au>
  *
  */
 
@@ -52,6 +52,7 @@ class UserAuthController
      */
     public function login()
     {
+       
         loadView('usersAuth/login');
     }
 
@@ -74,11 +75,15 @@ class UserAuthController
     {
         $givenName = $_POST['given_name'] ?? null;
         $familyName = $_POST['family_name'] ?? null;
+        //Use the given name as the nickname if no nickname is provided.
+        $nickName = $_POST['nickname'] ?? $givenName;
         $email = $_POST['email'] ?? null;
         $city = $_POST['city'] ?? null;
         $state = $_POST['state'] ?? null;
         $password = $_POST['password'] ?? null;
         $passwordConfirmation = $_POST['password_confirmation'] ?? null;
+        $userId = $_POST['user_id'] ?? null;
+        
 
         $errors = [];
 
@@ -95,6 +100,18 @@ class UserAuthController
             $errors['family_name'] = 'Family Name is optional';
         }
 
+        if (!Validation::string($nickName, 2, 50)) {
+            $errors['nickname'] = 'Nickname must be between 2 and 50 characters ';
+        }
+
+       
+        if (!Validation::string($userId, 2, 5)) {
+            $errors['userId'] = 'UserId must be between 2 and 5';
+        }
+
+
+
+
         if (!Validation::string($password, 6, 50)) {
             $errors['password'] = 'Password must be at least 6 characters';
         }
@@ -110,6 +127,7 @@ class UserAuthController
                     'given_name' => $givenName,
                     'family_name' => $familyName,
                     'email' => $email,
+                    'nickname' =>$nickName
                 ]
             ]);
             exit;
@@ -132,26 +150,29 @@ class UserAuthController
 
         // Create user account
         $params = [
+            'nickname' => $nickName,
             'given_name' => $givenName,
             'family_name' => $familyName,
             'email' => $email,
-            'password' => password_hash($password, PASSWORD_DEFAULT)
+            'password' => password_hash($password, PASSWORD_DEFAULT),
+            'user_id' => $userId
         ];
 
-        $this->db->query('INSERT INTO users (given_name, family_name, email, user_password) VALUES (:given_name, :family_name, :email, :password)', $params);
+        $this->db->query('INSERT INTO users (nickname,given_name, family_name, email, user_password,user_id) VALUES (:nickname, :given_name, :family_name, :email, :password, :user_id)', $params);
 
         // Get new user ID
         $userId = $this->db->conn->lastInsertId();
 
         // Set user session
-        Session::set('user', [
+        /*Session::set('user', [
             'id' => $userId,
             'given_name' => $givenName,
             'family_name' => $familyName,
             'email' => $email,
-        ]);
+        ]);*/
 
-        redirect('/');
+        redirect('/auth/login');
+        
     }
 
     /**
@@ -166,7 +187,7 @@ class UserAuthController
         $params = session_get_cookie_params();
         setcookie('PHPSESSID', '', time() - 86400, $params['path'], $params['domain']);
 
-        redirect('/');
+        redirect('/auth/login');
     }
 
     /**
@@ -231,6 +252,6 @@ class UserAuthController
             'email' => $user->email,
         ]);
 
-        redirect('/');
+        redirect('/dashboard');
     }
 }

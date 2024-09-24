@@ -34,7 +34,7 @@ loadPartial('navigation'); ?>
                     <input type="text" id="GivenName"
                            name="given_name" placeholder="Given Name"
                            class="w-full px-4 py-2 border border-b-zinc-300 rounded focus:outline-none"
-                           value="<?= $user['given_name'] ?? '' ?>"/>
+                           value="<?= $user['given_name'] ?? '' ?>"required/>
                 </section>
                 
                 <section class="mb-4">
@@ -43,6 +43,14 @@ loadPartial('navigation'); ?>
                            name="family_name" placeholder="Family Name"
                            class="w-full px-4 py-2 border border-b-zinc-300 rounded focus:outline-none"
                            value="<?= $user['family_name'] ?? '' ?>"/>
+                </section>
+
+                <section class="mb-4">
+                    <label for="NickName" class="mt-4 pb-1">Nickname:</label>
+                    <input type="text" id="NickName"
+                        name="nickname" placeholder="Nickname"
+                        class="w-full px-4 py-2 border border-b-zinc-300 rounded focus:outline-none"
+                        value="<?= $user['nickname'] ?? '' ?>" required />
                 </section>
 
                 <section class="mb-4">
@@ -65,6 +73,15 @@ loadPartial('navigation'); ?>
                     <input type="password" id="PasswordConfirmation"
                            name="password_confirmation" placeholder="Confirm Password"
                            class="w-full px-4 py-2 border border-b-zinc-300 rounded focus:outline-none"/>
+                </section>
+
+                <section class="mb-4">
+                    <label for="UserID" class="mt-4 pb-1">User ID:</label>
+                    <input type="number" id="UserID"
+                        name="user_id" placeholder="User ID"
+                        class="w-full px-4 py-2 border border-b-zinc-300 rounded focus:outline-none"
+                        value="10" required />
+
                 </section>
 
                 <section class="mb-4">

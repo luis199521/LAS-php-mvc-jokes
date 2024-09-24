@@ -29,14 +29,14 @@ class Authorise
      */
     public function handle($role)
     {
-        if ($role === 'guest' && $this->isAuthenticated()) {
-            return redirect('/');
-        }
+                if ($role === 'guest' && $this->isAuthenticated()) {
+                    return redirect('/');
+                }
 
-        if ($role === 'auth' && !$this->isAuthenticated()) {
-            return redirect('/auth/login');
-        }
-    }
+                if ($role === 'auth' && !$this->isAuthenticated()) {
+                    return redirect('/auth/login');
+                }
+            }
 
     /**
      * Check if user is authenticated
