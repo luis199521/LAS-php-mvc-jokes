@@ -40,6 +40,25 @@ class JokeController
     }
 
 
+/**
+ * Get  number of jokes
+ *
+ * @return int
+ */
+
+ public function numberJokes(){
+
+    //Fetching all Jokes from DB
+    $sql = "SELECT COUNT(*) as totalJokes FROM jokes";
+    $jokes = $this->db->query($sql)->fetchAll();
+    /*In order to have access to the number of jokes, we have to access the firs position of the array $jokes[0], 
+    There we have total*/
+  return $jokes[0]->totalJokes;
+  
+ }
+
+
+
     /**
      * Search Jokes by keywords such as joke's name and tags
      *

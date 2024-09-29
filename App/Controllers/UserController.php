@@ -1,4 +1,5 @@
 <?php
+
 /**
  * User Management Controller
  *
@@ -7,7 +8,7 @@
  * Project:         LAS-PHP-mvc-jokes
  * Date Created:    6/09/2024
  *
- * Author:          YOUR NAME <20114831@tafe.wa.edu.au>
+ * Author:          Luis Alvarez <20114831@tafe.wa.edu.au>
  *
  */
 
@@ -17,6 +18,7 @@ use Framework\Authorisation;
 use Framework\Database;
 use Framework\Session;
 use Framework\Validation;
+use App\Controllers\JokeController;
 
 class UserController
 {
@@ -44,30 +46,29 @@ class UserController
 
     // TODO: Create the index method
     public function index()
-    {
-        $sql = "SELECT * FROM users ORDER BY given_name, family_name, created_at";
+    {  //Fetching all users from DB
 
+        $sql = "SELECT COUNT(*) as totalUsers FROM users";
         $users = $this->db->query($sql)->fetchAll();
+        $countUsers = $users[0]->totalUsers;
+
+        //fetching number of jokes
+        $jokes = new JokeController();
+        
+        $countJokes = $jokes->numberJokes();
+      
+   
 
 
-        loadView('users/index', [
-            'users' => $users
+        loadView('/home', [
+            'totalJokes' => $countJokes,
+            'totalUsers'=> $countUsers
         ]);
     }
 
 
 
-    /**
-     * 
-     * Show Dashboard after Logging in 
-     */
 
-     public function dashboard()
-     {
-        loadView('/home');
-
-
-     }
 
     // TODO: Create the show method
 
@@ -85,7 +86,7 @@ class UserController
             'id' => $id
         ];
 
-//        $sql = 'SELECT * FROM users WHERE id = :id ';
+        //        $sql = 'SELECT * FROM users WHERE id = :id ';
         $sql = "SELECT u1.id as id, u1.given_name as given_name, u1.family_name as family_name, u1.email as email,
                        u1.user_id as user_id, u1.created_at as created_at, u1.updated_at as updated_at,
                        CONCAT(u2.given_name, ' ', u2.family_name) AS added_by
@@ -245,8 +246,10 @@ class UserController
 
         // Authorisation
         if (!Authorisation::isOwner($user->user_id) && !Authorisation::isUser($user->id)) {
-            Session::setFlashMessage('error_message',
-                'You are not authorized to update this user');
+            Session::setFlashMessage(
+                'error_message',
+                'You are not authorized to update this user'
+            );
             return redirect('/users/' . $user->id);
         }
 
@@ -279,8 +282,10 @@ class UserController
 
         // Authorisation
         if (!Authorisation::isOwner($user->user_id) && !Authorisation::isUser($user->id)) {
-            Session::setFlashMessage('error_message',
-                'You are not authorised to update this user');
+            Session::setFlashMessage(
+                'error_message',
+                'You are not authorised to update this user'
+            );
             return redirect('/users/' . $user->id);
         }
 
@@ -396,6 +401,4 @@ class UserController
 
         redirect('/users');
     }
-
-
 }

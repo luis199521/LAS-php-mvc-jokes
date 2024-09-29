@@ -70,7 +70,7 @@ if ($authenticated->isAuthenticated()){
         <?php
         if ($authenticated->isAuthenticated()):
             ?>
-            <p class="text-zinc-300 ">NickName &gt</p>
+            <p class="text-zinc-300 "><?=$given_name?></p>
 
             <form method="POST" action="/auth/logout" class="">
                 <button class="pb-2 px-1 text-text-zinc-700-200 hover:text-sky-300

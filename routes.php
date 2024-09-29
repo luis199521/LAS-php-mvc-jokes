@@ -33,13 +33,13 @@ $router->get('/jokes/search', 'JokeController@search');
  * Users Endpoints
  */
         //    $uri,     $controller,                   $middleware
-$router->get('/users', 'UserController@index');
+//$router->get('/users', 'UserController@index');
 $router->get('/users/create', 'UserController@create', ['auth']);
 $router->get('/users/edit/{id}', 'UserController@edit', ['auth']);
 $router->get('/users/search', 'UserController@search');
 $router->get('/users/{id}', 'UserController@show');
 
-$router->get('/dashboard', 'UserController@dashboard', ['auth']);
+$router->get('/users', 'UserController@index', ['auth']);
 
 
 $router->post('/users', 'UserController@store', ['auth']);
