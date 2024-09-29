@@ -7,7 +7,7 @@
  * Project:         LAS-PHP-MVC-Jokes
  * Date Created:    23/09/2024
  *
- * Author:          YOUR NAME <20114831@tafe.wa.edu.au>
+ * Author:          Luis Alvarez Suarez <20114831@tafe.wa.edu.au>
  *
  */
 

@@ -23,12 +23,16 @@ if ($authenticated->isAuthenticated()){
 
 <header class="bg-black text-white p-4 flex-grow-0 flex flex-row align-middle content-center">
     <h1 class="flex-0 w-32 text-xl p-4 ">
-        <a href="#"
+        <a href="/"
            class="py-4 px-4 -mx-4 -my-4 font-bold rounded text-sky-300 hover:text-sky-700 hover:bg-sky-300
                      transition ease-in-out duration-500">
             MVC
         </a>
     </h1>
+    <?php
+
+     if ($authenticated->isAuthenticated()): ?>
+
     <nav class="flex flex-row gap-4 py-4 flex-grow">
 
         <p><a href="/"
@@ -60,7 +64,7 @@ if ($authenticated->isAuthenticated()){
                 Users
             </a></p>
         <!-- /Show -->
-
+        <?php endif; ?>
         <div class="flex-grow"></div>
 
         <?php
@@ -94,12 +98,12 @@ if ($authenticated->isAuthenticated()){
         endif;
         ?>
 
-        <form method="GET" action="/" class="block mx-5">
+        <form method="GET" action="/jokes/search" class="block mx-5">
             <input type="text" name="keywords" placeholder="Joke search..."
-                   class="w-full md:w-auto px-4 py-2 focus:outline-none"/>
+                   class="w-full md:w-auto px-4 py-2 focus:outline-none text-black"/>
             <button class="w-full md:w-auto
                            bg-sky-500 hover:bg-sky-600
-                           text-white
+                           text-black
                            px-4 py-2
                            focus:outline-none transition ease-in-out duration-500">
                 <i class="fa fa-search"></i> Search

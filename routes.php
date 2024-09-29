@@ -20,6 +20,8 @@ $router->get('/', 'StaticPageController@index');
  * Jokes Endpoints
  */
 
+$router->get('/jokes/search', 'JokeController@search');
+
 
 /* ----------------------------------------------------------------------------
  * Categories Endpoints

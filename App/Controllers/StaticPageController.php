@@ -1,17 +1,15 @@
 <?php
 /**
- * FILE TITLE GOES HERE
+ * Static Pages Managment
  *
- * DESCRIPTION OF THE PURPOSE AND USE OF THE CODE
- * MAY BE MORE THAN ONE LINE LONG
- * KEEP LINE LENGTH TO NO MORE THAN 96 CHARACTERS
+ * Provides access to static pages such as home, contact and about pages.
  *
  * Filename:        StaticPageController.php
- * Location:
- * Project:         XXX-PHP-MVC-Jokes
- * Date Created:    DD/MM/YYYY
+ * Location:        App/Controllers
+ * Project:         LAS-PHP-MVC-Jokes
+ * Date Created:    27/09/2024
  *
- * Author:          YOUR NAME <STUDENT_ID@tafe.wa.edu.au>
+ * Author:          Luis Alvarez Suarez <20114831@tafe.wa.edu.au>
  *
  */
 
@@ -37,9 +35,18 @@ class StaticPageController
      */
     public function index()
     {
-        // TODO: Crete the method code for the home page
-        echo"<h1>CODE INSTALLED CORRECTLY</h1>";
-        echo"<p>Time to work on the rest of the application</p>";
+        //Fetching a random joke
+        $sql = "SELECT * FROM jokes ORDER BY RAND() LIMIT 1";
+
+        $jokes = $this->db->query($sql)->fetchAll();
+      
+
+        loadView('staticPages/home', [
+            'jokes' => $jokes
+        ]);
+        
+        //loadView('staticPages/home');
+       
     }
 
     /*
