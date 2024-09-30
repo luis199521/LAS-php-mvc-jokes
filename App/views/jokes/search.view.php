@@ -14,7 +14,7 @@
  */
 
 /* Load HTML header and navigation areas */
-$pageTitle = "Serch Jokes | XXX-MVC-Jokes";
+$pageTitle = "Serch Jokes | LAS-MVC-Jokes";
 
 loadPartial("header", ["pageTitle"=>$pageTitle]);loadPartial('navigation');
 

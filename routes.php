@@ -15,6 +15,7 @@
  * Static Page Endpoints
  */
 $router->get('/', 'StaticPageController@index');
+$router->get('about', 'StaticPageController@about');
 
 /* ----------------------------------------------------------------------------
  * Jokes Endpoints
