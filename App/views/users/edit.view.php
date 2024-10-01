@@ -1,21 +1,19 @@
 <?php
 /**
- * FILE TITLE GOES HERE
+ * Edit user view
  *
- * DESCRIPTION OF THE PURPOSE AND USE OF THE CODE
- * MAY BE MORE THAN ONE LINE LONG
- * KEEP LINE LENGTH TO NO MORE THAN 96 CHARACTERS
+ * Editing form for users
  *
  * Filename:        index.view.php
- * Location:        ${FILE_LOCATION}
- * Project:         XXX-PHP-MVC-Jokes
- * Date Created:    DD/MM/YYYY
+ * Location:        Views/users/edit
+ * Project:         LAS-PHP-MVC-Jokes
+ * Date Created:    29/09/2024
  *
- * Author:          YOUR NAME <STUDENT_ID@tafe.wa.edu.au>
+ * Author:          Luis Alvarez<20114831@tafe.wa.edu.au>
  *
  */
 
-$pageTitle = "Edit | Users | XXX-MVC-Jokes";
+$pageTitle = "Edit | Users | LAS-MVC-Jokes";
 
 loadPartial("header", ["pageTitle" => $pageTitle]);
 loadPartial('navigation');
@@ -58,6 +56,14 @@ loadPartial('navigation');
                                id="FamilyName" name="family_name"
                                class="w-full px-4 py-2 border rounded focus:outline-none"
                                value="<?= $user->family_name ?? '' ?>"/>
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="nickname" class="mt-4 pb-1">Nickname:</label>
+                        <input type="text"placeholder="Nickname"
+                               id="nickname" name="nickname"
+                               class="w-full px-4 py-2 border rounded focus:outline-none"
+                               value="<?= $user->nickname ?? $user->give_name ?>"/>
                     </div>
 
                     <section class="mb-4">

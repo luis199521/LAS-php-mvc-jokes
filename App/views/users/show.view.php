@@ -1,21 +1,19 @@
 <?php
 /**
- * FILE TITLE GOES HERE
+ * Show user view
  *
- * DESCRIPTION OF THE PURPOSE AND USE OF THE CODE
- * MAY BE MORE THAN ONE LINE LONG
- * KEEP LINE LENGTH TO NO MORE THAN 96 CHARACTERS
+ * Shows details of an specific user
  *
  * Filename:        index.view.php
- * Location:        ${FILE_LOCATION}
- * Project:         XXX-PHP-MVC-Jokes
- * Date Created:    DD/MM/YYYY
+ * Location:        Views/users/show
+ * Project:         LAS-PHP-MVC-Jokes
+ * Date Created:    30/09/2024
  *
- * Author:          YOUR NAME <STUDENT_ID@tafe.wa.edu.au>
+ * Author:          Luis Alvarez<20114831@tafe.wa.edu.au>
  *
  */
 
-$pageTitle = "Show | Users | XXX-MVC-Jokes";
+$pageTitle = "Show | Users | LAS-MVC-Jokes";
 
 loadPartial("header", ["pageTitle" => $pageTitle]);
 loadPartial('navigation');
@@ -57,6 +55,34 @@ loadPartial('navigation');
             <section class="flex-grow flex flex-row">
 
                 <section class="grow">
+                     <h5 class="text-lg font-bold">
+                        Nickname:
+                    </h5>
+                    <p class="grow text-lg text-zinc-600 mb-4">
+                        <?= $user->nickname ?>
+                    </p>
+                    <h5 class="text-lg font-bold">
+                        Name:
+                    </h5>
+                    <p class="grow text-lg text-zinc-600 mb-4">
+                        <?= $user->given_name ?>
+                    </p>
+                    <h5 class="text-lg font-bold">
+                        Family Name:
+                    </h5>
+                    <p class="grow text-lg text-zinc-600 mb-4">
+                        <?= $user->family_name ?>
+                    </p>
+
+                    <h5 class="text-lg font-bold">
+                        Email:
+                    </h5>
+                    <p class="grow text-lg text-zinc-600 mb-4">
+                        <?= $user->email ?>
+                    </p>
+
+
+
                     <h5 class="text-lg font-bold">
                         Joined:
                     </h5>
@@ -71,13 +97,7 @@ loadPartial('navigation');
                         <?= $user->updated_at ?? "n/a" ?>
                     </p>
 
-                    <h5 class="text-lg font-bold">
-                        Added by:
-                    </h5>
-                    <p class="grow text-lg text-zinc-600 mb-6">
-                        <?= $user->added_by ?? "n/a" ?>
-                    </p>
-
+                   
                     <?php
                     if (Framework\Authorisation::isOwner($user->user_id) || Framework\Authorisation::isUser($user->id)) :
                         ?>

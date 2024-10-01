@@ -12,7 +12,7 @@
  * Project:         LAS-PHP-MVC-Jokes
  * Date Created:    23/09/2024
  *
- * Author:          YOUR NAME <20114831@tafe.wa.edu.au>
+ * Author:          Luis Alvarez<20114831@tafe.wa.edu.au>
  *
  */
 
@@ -65,7 +65,7 @@ loadPartial('navigation');
                     <input type="text" id="NickName"
                         name="nickname" placeholder="Nickname"
                         class="w-full px-4 py-2 border border-b-zinc-300 rounded focus:outline-none"
-                        value="<?= $user['nickname'] ?? '' ?>" required />
+                        value="<?= $user['nickname'] ?? '' ?>"   />
                 </section>
 
                 <section class="mb-4">

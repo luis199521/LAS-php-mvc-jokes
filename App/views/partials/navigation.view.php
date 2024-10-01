@@ -29,20 +29,13 @@ if ($authenticated->isAuthenticated()){
             MVC
         </a>
     </h1>
-
-    <p><a href="/about"
-              class="pb-2 px-1 text-text-zinc-700-200 hover:text-sky-300
-                     border-0 border-b-2 hover:border-b-sky-500
-                     transition ease-in-out duration-500">
-                About
-            </a></p>
     <?php
 
      if ($authenticated->isAuthenticated()): ?>
 
     <nav class="flex flex-row gap-4 py-4 flex-grow">
 
-        <p><a href="/"
+        <p><a href="/home"
               class="pb-2 px-1 text-text-zinc-700-200 hover:text-sky-300
                      border-0 border-b-2 hover:border-b-sky-500
                      transition ease-in-out duration-500">
@@ -64,7 +57,7 @@ if ($authenticated->isAuthenticated()){
                 Categories
             </a></p>
 
-        <p><a href="/"
+        <p><a href="/users"
               class="pb-2 px-1 text-text-zinc-700-200 hover:text-sky-300
                      border-0 border-b-2 hover:border-b-sky-500
                      transition ease-in-out duration-500">
@@ -90,17 +83,26 @@ if ($authenticated->isAuthenticated()){
         else:
             ?>
             <p><a href="/auth/login"
-                  class="pb-2 px-1 text-text-zinc-700-200 hover:text-sky-300
-                     border-0 border-b-2 hover:border-b-sky-500
+                  class="pb-2  px-1 text-text-zinc-700-200 hover:text-sky-300
+                     hover:border-b-sky-500
                      transition ease-in-out duration-500">
                     Login
                 </a></p>
             <p><a href="/auth/register"
                   class="pb-2 px-1 text-text-zinc-700-200 hover:text-sky-300
-                     border-0 border-b-2 hover:border-b-sky-500
+                      hover:border-b-sky-500
                      transition ease-in-out duration-500">
                     Register
                 </a></p>
+
+                <p><a href="/about"
+                  class="pb-2 px-1 text-text-zinc-700-200 hover:text-sky-300
+                      hover:border-b-sky-500
+                     transition ease-in-out duration-500">
+                    About
+                </a></p>
+
+
         <?php
         endif;
         ?>

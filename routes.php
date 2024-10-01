@@ -16,6 +16,7 @@
  */
 $router->get('/', 'StaticPageController@index');
 $router->get('about', 'StaticPageController@about');
+$router->get('/home', 'StaticPageController@home', ['auth']);
 
 /* ----------------------------------------------------------------------------
  * Jokes Endpoints
@@ -41,7 +42,6 @@ $router->get('/users/search', 'UserController@search');
 $router->get('/users/{id}', 'UserController@show');
 
 $router->get('/users', 'UserController@index', ['auth']);
-
 
 $router->post('/users', 'UserController@store', ['auth']);
 $router->put('/users/{id}', 'UserController@update', ['auth']);

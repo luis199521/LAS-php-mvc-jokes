@@ -252,6 +252,6 @@ class UserAuthController
             'email' => $user->email,
         ]);
 
-        redirect('/users');
+        redirect('/home');
     }
 }

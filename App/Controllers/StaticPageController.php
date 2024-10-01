@@ -17,6 +17,8 @@ namespace App\Controllers;
 
 
 use Framework\Database;
+use App\Controllers\JokeController;
+use App\Controllers\UserController;
 
 class StaticPageController
 {
@@ -45,9 +47,36 @@ class StaticPageController
             'jokes' => $jokes
         ]);
         
-        //loadView('staticPages/home');
        
     }
+
+
+    /*
+     * Show the home static page when user logs in,  statistics  of number of users and jokes can be seen.
+     *
+     * @return void
+     */
+    public function home()
+    {
+
+        //fetching number of jokes
+        $jokes = new JokeController();
+        
+        $countJokes = $jokes->numberJokes();
+
+        //fetching number of users
+        $users = new UserController();
+        
+        $countUsers = $users->numberUsers();
+
+         loadView('/home', [
+            'totalJokes' => $countJokes,
+            'totalUsers'=> $countUsers
+        ]);
+        
+    }
+
+
 
     /*
      * Show the about static page

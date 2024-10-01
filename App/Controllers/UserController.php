@@ -18,7 +18,7 @@ use Framework\Authorisation;
 use Framework\Database;
 use Framework\Session;
 use Framework\Validation;
-use App\Controllers\JokeController;
+
 
 class UserController
 {
@@ -44,27 +44,31 @@ class UserController
         $this->db = new Database($config);
     }
 
+    //create both methods on jokes and users then call them on  index static pages
+
     // TODO: Create the index method
     public function index()
-    {  //Fetching all users from DB
+    {  
 
+        $sql = "SELECT *  FROM users";
+        $users = $this->db->query($sql)->fetchAll();
+    
+        loadView('/users/index', [
+            'users' => $users
+        ]);
+      
+    }
+
+    public function numberUsers(){
+
+        //Fetching and counting all users from DB
         $sql = "SELECT COUNT(*) as totalUsers FROM users";
         $users = $this->db->query($sql)->fetchAll();
-        $countUsers = $users[0]->totalUsers;
-
-        //fetching number of jokes
-        $jokes = new JokeController();
-        
-        $countJokes = $jokes->numberJokes();
+        /*In order to have access to the number of users, we have to access the firs position of the array $users[0], 
+        There we have total*/
+      return $users[0]->totalUsers;
       
-   
-
-
-        loadView('/home', [
-            'totalJokes' => $countJokes,
-            'totalUsers'=> $countUsers
-        ]);
-    }
+     }
 
 
 
@@ -87,7 +91,7 @@ class UserController
         ];
 
         //        $sql = 'SELECT * FROM users WHERE id = :id ';
-        $sql = "SELECT u1.id as id, u1.given_name as given_name, u1.family_name as family_name, u1.email as email,
+        $sql = "SELECT u1.nickname as nickname , u1.id as id, u1.given_name as given_name, u1.family_name as family_name, u1.email as email,
                        u1.user_id as user_id, u1.created_at as created_at, u1.updated_at as updated_at,
                        CONCAT(u2.given_name, ' ', u2.family_name) AS added_by
                 FROM users u1
@@ -156,11 +160,16 @@ class UserController
      */
     public function store()
     {
-        $allowedFields = ['given_name', 'family_name', 'email', 'user_password', 'confirm_password',];
+        $allowedFields = ['nickname','given_name', 'family_name', 'email', 'user_password', 'confirm_password',];
 
         $newUserData = array_intersect_key($_POST, array_flip($allowedFields));
         $newUserData['user_id'] = Session::get('user')['id'];
         $newUserData = array_map('sanitize', $newUserData);
+
+        //	Use the given name as the nickname if no nickname is provided.
+        if (!$newUserData['nickname']) {
+            $newUserData['nickname'] = $newUserData['given_name'];
+        }
 
         $requiredFields = ['given_name', 'family_name', 'email',];
 
@@ -289,11 +298,16 @@ class UserController
             return redirect('/users/' . $user->id);
         }
 
-        $allowedFields = ['given_name', 'family_name', 'user_password', 'confirm_password',];
+        $allowedFields = ['nickname','given_name', 'family_name','email', 'user_password', 'confirm_password',];
 
         $updateValues = array_intersect_key($_POST, array_flip($allowedFields)) ?? [];
 
         $updateValues = array_map('sanitize', $updateValues);
+
+        //	Use the given name as the nickname if no nickname is provided.
+        if (!$updateValues['nickname']) {
+            $updateValues['nickname'] = $updateValues['given_name'];
+        }
 
 
         $requiredFields = ['given_name', 'family_name',];
