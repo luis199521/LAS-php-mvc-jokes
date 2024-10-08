@@ -43,7 +43,7 @@ if ($authenticated->isAuthenticated()){
             </a></p>
 
         <!-- Show these when visitor is registered & authenticated -->
-        <p><a href="/"
+        <p><a href="/jokes"
               class="pb-2 px-1 text-text-zinc-700-200 hover:text-sky-300
                      border-0 border-b-2 hover:border-b-sky-500
                      transition ease-in-out duration-500">

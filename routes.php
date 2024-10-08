@@ -22,7 +22,20 @@ $router->get('/home', 'StaticPageController@home', ['auth']);
  * Jokes Endpoints
  */
 
+
 $router->get('/jokes/search', 'JokeController@search');
+$router->get('/joke/search', 'JokeController@search');
+
+
+$router->get('/jokes/create', 'JokeController@create', ['auth']);
+$router->get('/jokes/edit/{id}', 'JokeController@edit', ['auth']);
+$router->get('/jokes/{id}', 'JokeController@show');
+
+$router->get('/jokes', 'JokeController@index', ['auth']);
+
+$router->post('/jokes', 'JokeController@store', ['auth']);
+$router->put('/jokes/{id}', 'JokeController@update', ['auth']);
+$router->delete('/jokes/{id}', 'JokeController@destroy', ['auth']);
 
 
 /* ----------------------------------------------------------------------------

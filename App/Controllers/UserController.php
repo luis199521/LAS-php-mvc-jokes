@@ -142,7 +142,7 @@ class UserController
     // TODO: Create the create method
 
     /**
-     * Show the create user form
+     * Show the user create form
      *
      * @return void
      */

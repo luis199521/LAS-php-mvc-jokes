@@ -1,17 +1,15 @@
 <?php
 /**
- * FILE TITLE GOES HERE
+ *  Router app
  *
- * DESCRIPTION OF THE PURPOSE AND USE OF THE CODE
- * MAY BE MORE THAN ONE LINE LONG
- * KEEP LINE LENGTH TO NO MORE THAN 96 CHARACTERS
+ * It manages http routes and link them with their methods(GET|POST|PUT|DELETE)
  *
  * Filename:        Router.php
- * Location:
- * Project:         XXX-PHP-MVC-Jokes
- * Date Created:    DD/MM/YYYY
+ * Location:        Framework
+ * Project:         LAS-PHP-MVC-Jokes
+ * Date Created:    06/10/2024
  *
- * Author:          YOUR NAME <STUDENT_ID@tafe.wa.edu.au>
+ * Author:          Luis Alvarez  <20114831@tafe.wa.edu.au>
  *
  */
 
@@ -20,6 +18,7 @@ namespace Framework;
 
 use App\Controllers\ErrorController;
 use Framework\Middleware\Authorise;
+
 
 class Router
 {

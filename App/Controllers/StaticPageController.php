@@ -19,6 +19,7 @@ namespace App\Controllers;
 use Framework\Database;
 use App\Controllers\JokeController;
 use App\Controllers\UserController;
+use Parsedown;
 
 class StaticPageController
 {
@@ -41,6 +42,15 @@ class StaticPageController
         $sql = "SELECT * FROM jokes ORDER BY RAND() LIMIT 1";
 
         $jokes = $this->db->query($sql)->fetchAll();
+
+
+        $parsedown = new Parsedown();
+
+        foreach ($jokes as $joke) {
+
+            $joke->joke = $parsedown->text($joke->joke);
+        }
+
       
 
         loadView('staticPages/home', [

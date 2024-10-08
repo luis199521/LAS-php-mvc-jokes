@@ -14,7 +14,7 @@
 
 <footer class="bg-black text-zinc-500 p-4 mt-8 flex flex-wrap flex-row text-sm">
     <section class="w-1/2 p-8 flex flex-col gap-2">
-        <p class="text-zinc-400">&copy; Copyright 2024 YOUR_NAME. All rights reserved.</p>
+        <p class="text-zinc-400">&copy; Copyright 2024 Luis Alvarez Suarez. All rights reserved.</p>
         <p class="text-xs">
             Based on the <a href="https://github.com/bradtraversy/workopia-php"
                             class="text-zinc-500 hover:text-white underline underline-offset-2">Workopia Project</a> from the

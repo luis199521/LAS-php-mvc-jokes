@@ -4,24 +4,45 @@
  *
  * Filename:        CategoryController.php
  * Location:        /App/Controllers
- * Project:         XXX-mvc-jokes
- * Date Created:    6/09/2024
+ * Project:         LAS-mvc-jokes
+ * Date Created:    06/10/2024
  *
- * Author:          YOUR NAME <STUDENT_ID@tafe.wa.edu.au>
+ * Author:          Luis Alvarez Suarez<20114831@tafe.wa.edu.au>
  *
  */
 
 namespace App\Controllers;
 
+use Framework\Database;
+
+
 class CategoryController
 {
-    // TODO: Create a protected db variable
-    // TODO: Create the  __construct method
-    // TODO: Create the index method
-    // TODO: Create the show method
-    // TODO: Create the create method
-    // TODO: Create the store
-    // TODO: Create the edit
-    // TODO: Create the update
-    // TODO: Create the destroy method
+
+    protected $db;
+
+    public function __construct()
+    {
+        $config = require basePath('config/db.php');
+        $this->db = new Database($config);
+    }
+
+    
+    /**
+     * Get all categories to create a dropdown list with this
+     * https://www.geeksforgeeks.org/create-a-drop-down-list-that-options-fetched-from-a-mysql-database-in-php/
+     *
+     * @return void
+     */
+
+     public function getCategories()
+     {
+         //Fetching categories
+         $sql = "SELECT * FROM categories";
+         $categories = $this->db->query($sql)->fetchAll();
+         return $categories;
+
+     }
+ 
 }
+
