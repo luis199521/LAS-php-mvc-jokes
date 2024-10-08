@@ -1,14 +1,12 @@
 <?php
 /**
- * Session
+ * Session Management Class
  *
- * DESCRIPTION OF THE PURPOSE AND USE OF THE CODE
- * MAY BE MORE THAN ONE LINE LONG
- * KEEP LINE LENGTH TO NO MORE THAN 96 CHARACTERS
+ * It manages PHP sesions
  *
  * Filename:        Session.php
  * Location:        Framework/Session
- * Project:         XXX-PHP-MVC-Jokes
+ * Project:         LAS-PHP-MVC-Jokes
  * Date Created:    23/09/2024
  *
  * Author:         Luis Alvarez  <20114831@tafe.wa.edu.au>

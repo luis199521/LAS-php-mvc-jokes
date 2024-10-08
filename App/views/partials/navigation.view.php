@@ -4,10 +4,10 @@
  *
  * Filename:        navigation.view.php
  * Location:        App/views/partials
- * Project:         SaaS-FED-Notes
- * Date Created:    DD/MM/YYYY
+ * Project:         LAS-PHP-MVC-Jokes
+ * Date Created:    23/09/2024
  *
- * Author:          YOUR NAME <STUDENT_ID@tafe.wa.edu.au>
+ * Author:          Luis Alvarez Suarez <20114831@tafe.wa.edu.au>
  *
  */
 

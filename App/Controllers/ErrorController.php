@@ -2,16 +2,14 @@
 /**
  * FILE TITLE GOES HERE
  *
- * DESCRIPTION OF THE PURPOSE AND USE OF THE CODE
- * MAY BE MORE THAN ONE LINE LONG
- * KEEP LINE LENGTH TO NO MORE THAN 96 CHARACTERS
+ * It manages 404 and 403 Error responses.
  *
  * Filename:        ErrorController.php
- * Location:
- * Project:         XXX-PHP-MVC-Jokes
- * Date Created:    DD/MM/YYYY
+ * Location:        App/Controllers
+ * Project:         LAS-PHP-MVC-Jokes
+ * Date Created:    08/10/2024
  *
- * Author:          YOUR NAME <STUDENT_ID@tafe.wa.edu.au>
+ * Author:          Luis Alvarez Suarez <20114831@tafe.wa.edu.au>
  *
  */
 

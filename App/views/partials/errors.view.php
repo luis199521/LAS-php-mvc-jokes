@@ -1,17 +1,15 @@
 <?php
 /**
- * FILE TITLE GOES HERE
+ * Errors view
  *
- * DESCRIPTION OF THE PURPOSE AND USE OF THE CODE
- * MAY BE MORE THAN ONE LINE LONG
- * KEEP LINE LENGTH TO NO MORE THAN 96 CHARACTERS
+ * Display existing errors
  *
  * Filename:        errors.view.php
- * Location:        ${FILE_LOCATION}
- * Project:         XXX-PHP-MVC-Jokes
+ * Location:        App/views/partials
+ * Project:         LAS-PHP-MVC-Jokes
  * Date Created:    23/08/2024
  *
- * Author:          YOUR NAME <STUDENT_ID@tafe.wa.edu.au>
+ * Author:          Luis Alvarez <20114831@tafe.wa.edu.au>
  *
  */
 

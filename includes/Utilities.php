@@ -1,17 +1,15 @@
 <?php
 /**
- * FILE TITLE GOES HERE
+ * Utilities for debugging 
  *
- * DESCRIPTION OF THE PURPOSE AND USE OF THE CODE
- * MAY BE MORE THAN ONE LINE LONG
- * KEEP LINE LENGTH TO NO MORE THAN 96 CHARACTERS
+ * It provides methods for debugging
  *
  * Filename:        Utilities.php
  * Location:        session-05
- * Project:         SaaS-FED-Notes
+ * Project:         LAS-PHP-MVC-Jokes
  * Date Created:    13/08/2024
  *
- * Author:          YOUR NAME <STUDENT_ID@tafe.wa.edu.au>
+ * Author:          Luis Alvarez Suarez <20114831@tafe.wa.edu.au>
  *
  */
 

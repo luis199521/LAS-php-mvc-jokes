@@ -4,10 +4,10 @@
  *
  * Filename:        create.view.php
  * Location:        App/views/usersAuth
- * Project:         XXX-PHP-MVC-Jokes
+ * Project:         LAS-PHP-MVC-Jokes
  * Date Created:    23/08/2024
  *
- * Author:          YOUR NAME <STUDENT_ID@tafe.wa.edu.au>
+ * Author:          Luis Alvarez Suarez <20114831@tafe.wa.edu.au>
  *
  */
 

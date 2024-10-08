@@ -35,7 +35,12 @@ class JokeController
         $this->db = new Database($config);
     }
 
-    // TODO: Create the index method
+
+    /**
+     *Get jokes and convert them from Markdown to HTML.
+     * @return void
+     */
+
     public function index()
     {
         $sql = "SELECT *  FROM jokes";

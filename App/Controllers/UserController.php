@@ -44,37 +44,38 @@ class UserController
         $this->db = new Database($config);
     }
 
-    //create both methods on jokes and users then call them on  index static pages
-
-    // TODO: Create the index method
+    /**
+     *Get all users and send them to the view.
+     * @return void
+     */
     public function index()
-    {  
+    {
 
         $sql = "SELECT *  FROM users";
         $users = $this->db->query($sql)->fetchAll();
-    
+
         loadView('/users/index', [
             'users' => $users
         ]);
-      
     }
 
-    public function numberUsers(){
+    /**
+     * Get total numnber of users which are stored on the first position of the array 
+     * @return int 
+     */
+
+    public function numberUsers()
+    {
 
         //Fetching and counting all users from DB
         $sql = "SELECT COUNT(*) as totalUsers FROM users";
         $users = $this->db->query($sql)->fetchAll();
         /*In order to have access to the number of users, we have to access the firs position of the array $users[0], 
         There we have total*/
-      return $users[0]->totalUsers;
-      
-     }
+        return $users[0]->totalUsers;
+    }
 
 
-
-
-
-    // TODO: Create the show method
 
     /**
      * Show a single user
@@ -110,7 +111,6 @@ class UserController
         ]);
     }
 
-    // TODO: Create a search method for users
 
     /**
      * Search users by keywords/location
@@ -139,7 +139,7 @@ class UserController
         ]);
     }
 
-    // TODO: Create the create method
+    
 
     /**
      * Show the user create form
@@ -151,7 +151,7 @@ class UserController
         loadView('users/create');
     }
 
-    // TODO: Create the store
+    
 
     /**
      * Store data in database
@@ -160,7 +160,7 @@ class UserController
      */
     public function store()
     {
-        $allowedFields = ['nickname','given_name', 'family_name', 'email', 'user_password', 'confirm_password',];
+        $allowedFields = ['nickname', 'given_name', 'family_name', 'email', 'user_password', 'confirm_password',];
 
         $newUserData = array_intersect_key($_POST, array_flip($allowedFields));
         $newUserData['user_id'] = Session::get('user')['id'];
@@ -298,7 +298,7 @@ class UserController
             return redirect('/users/' . $user->id);
         }
 
-        $allowedFields = ['nickname','given_name', 'family_name','email', 'user_password', 'confirm_password',];
+        $allowedFields = ['nickname', 'given_name', 'family_name', 'email', 'user_password', 'confirm_password',];
 
         $updateValues = array_intersect_key($_POST, array_flip($allowedFields)) ?? [];
 
@@ -377,7 +377,7 @@ class UserController
         redirect('/users/' . $id);
     }
 
-    // TODO: Create the destroy method
+    
 
     /**
      * Delete a user
